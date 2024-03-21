@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "0e8d56a7-0621-46b3-bcaa-2c680ab45f7e",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32057275"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"testCase\",\n  \"password\": \"case123!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test.earlybird.se/auth/token",
+					"protocol": "https",
+					"host": [
+						"test",
+						"earlybird",
+						"se"
+					],
+					"path": [
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bokaLeverans",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6Imp3dCIsImtpZCI6IjJjRjhOcExfeUZwYjdZUGVNNGk4UGdWYjM1NWhta2JOTnA3NlhhdXpwV00ifQ.eyJjdXN0b21lcklkIjoiMTU0NiIsImdyb3VwcyI6W10sImlhdCI6MTcxMDk2ODQxMSwic3ViIjoidGVzdENhc2UiLCJpc3MiOiJ0ZXN0LmVhcmx5YmlyZC5zZSIsImF1ZCI6InRlc3QuZWFybHliaXJkLnNlIiwiZXhwIjoxNzExMDU0ODExfQ.BI42WWuAXCjnMKoIYBCy0xXhIBUsfVd_CPQO_BJiiGdG6JmNCBt440DmV0lST5RsXLH_2nGgGYJqzNp5uKSJI4dN9cumn6rfxcPDo-_8aSNF9ydvIhg20kiT-99lXFGT-wNCiGoDfNTKkrPNXN9hKv4VscE9EwDDPHyVN7aD8cLGdlvBbPD7sA0uX68wj92Yldy9b6qzsRLLrjc2MWbFdsQck88_vqt9N2YEDe48cNjdc2yAxpB02jc2XsNxZiGtkGuiyCC4QG1TIhQpvDvR_UYZeI0AnTTuVis9m3Yyjd24wJEa-_n0giZZRM2qkrppZ472W926sxVaLWGNFJulxw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \"desiredDeliveryDate\": \"2023-04-15\",   \"country\": \"SE\",   \"zip\": \"17676\",   \"city\": \"Stockholm\",   \"address\": \"majorsvagen 12c\",   \"volume\": 5000,   \"weight\": 2000 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test.earlybird.se/v1/check/express",
+					"protocol": "https",
+					"host": [
+						"test",
+						"earlybird",
+						"se"
+					],
+					"path": [
+						"v1",
+						"check",
+						"express"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "skapaLeverans",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6Imp3dCIsImtpZCI6IjJjRjhOcExfeUZwYjdZUGVNNGk4UGdWYjM1NWhta2JOTnA3NlhhdXpwV00ifQ.eyJjdXN0b21lcklkIjoiMTU0NiIsImdyb3VwcyI6W10sImlhdCI6MTcxMDk2ODQxMSwic3ViIjoidGVzdENhc2UiLCJpc3MiOiJ0ZXN0LmVhcmx5YmlyZC5zZSIsImF1ZCI6InRlc3QuZWFybHliaXJkLnNlIiwiZXhwIjoxNzExMDU0ODExfQ.BI42WWuAXCjnMKoIYBCy0xXhIBUsfVd_CPQO_BJiiGdG6JmNCBt440DmV0lST5RsXLH_2nGgGYJqzNp5uKSJI4dN9cumn6rfxcPDo-_8aSNF9ydvIhg20kiT-99lXFGT-wNCiGoDfNTKkrPNXN9hKv4VscE9EwDDPHyVN7aD8cLGdlvBbPD7sA0uX68wj92Yldy9b6qzsRLLrjc2MWbFdsQck88_vqt9N2YEDe48cNjdc2yAxpB02jc2XsNxZiGtkGuiyCC4QG1TIhQpvDvR_UYZeI0AnTTuVis9m3Yyjd24wJEa-_n0giZZRM2qkrppZ472W926sxVaLWGNFJulxw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"orderId\": \"\",\n\n\"productId\": \"home\",\n\n\"sender\": {\"name\": \"Aldo Ruiz\",   \"country\": \"SE\",   \"zip\": \"17676\",   \"city\": \"Stockholm\",   \"address\": \"majorsvagen 12c\"},\n\n\"receiver\": {\"name\": \"Hugo Ruiz\",   \"country\": \"SE\",   \"zip\": \"17676\",   \"city\": \"Stockholm\",   \"address\": \"majorsvagen 13c\"},\n\n\"parcels\": [{}],\n\n\n\"attributes\": {\"key\": \"test\"},\n\n\"deliveryDay\": \"2024-04-24\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test.earlybird.se/v1/orders",
+					"protocol": "https",
+					"host": [
+						"test",
+						"earlybird",
+						"se"
+					],
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kollaStatus",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test for the status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6Imp3dCIsImtpZCI6IjJjRjhOcExfeUZwYjdZUGVNNGk4UGdWYjM1NWhta2JOTnA3NlhhdXpwV00ifQ.eyJjdXN0b21lcklkIjoiMTU0NiIsImdyb3VwcyI6W10sImlhdCI6MTcxMDk2ODQxMSwic3ViIjoidGVzdENhc2UiLCJpc3MiOiJ0ZXN0LmVhcmx5YmlyZC5zZSIsImF1ZCI6InRlc3QuZWFybHliaXJkLnNlIiwiZXhwIjoxNzExMDU0ODExfQ.BI42WWuAXCjnMKoIYBCy0xXhIBUsfVd_CPQO_BJiiGdG6JmNCBt440DmV0lST5RsXLH_2nGgGYJqzNp5uKSJI4dN9cumn6rfxcPDo-_8aSNF9ydvIhg20kiT-99lXFGT-wNCiGoDfNTKkrPNXN9hKv4VscE9EwDDPHyVN7aD8cLGdlvBbPD7sA0uX68wj92Yldy9b6qzsRLLrjc2MWbFdsQck88_vqt9N2YEDe48cNjdc2yAxpB02jc2XsNxZiGtkGuiyCC4QG1TIhQpvDvR_UYZeI0AnTTuVis9m3Yyjd24wJEa-_n0giZZRM2qkrppZ472W926sxVaLWGNFJulxw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test.earlybird.se/shipmentevents/UE954142681SE/SE/true",
+					"protocol": "https",
+					"host": [
+						"test",
+						"earlybird",
+						"se"
+					],
+					"path": [
+						"shipmentevents",
+						"UE954142681SE",
+						"SE",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kollaStatus Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test for the status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6Imp3dCIsImtpZCI6IjJjRjhOcExfeUZwYjdZUGVNNGk4UGdWYjM1NWhta2JOTnA3NlhhdXpwV00ifQ.eyJjdXN0b21lcklkIjoiMTU0NiIsImdyb3VwcyI6W10sImlhdCI6MTcxMDk2ODQxMSwic3ViIjoidGVzdENhc2UiLCJpc3MiOiJ0ZXN0LmVhcmx5YmlyZC5zZSIsImF1ZCI6InRlc3QuZWFybHliaXJkLnNlIiwiZXhwIjoxNzExMDU0ODExfQ.BI42WWuAXCjnMKoIYBCy0xXhIBUsfVd_CPQO_BJiiGdG6JmNCBt440DmV0lST5RsXLH_2nGgGYJqzNp5uKSJI4dN9cumn6rfxcPDo-_8aSNF9ydvIhg20kiT-99lXFGT-wNCiGoDfNTKkrPNXN9hKv4VscE9EwDDPHyVN7aD8cLGdlvBbPD7sA0uX68wj92Yldy9b6qzsRLLrjc2MWbFdsQck88_vqt9N2YEDe48cNjdc2yAxpB02jc2XsNxZiGtkGuiyCC4QG1TIhQpvDvR_UYZeI0AnTTuVis9m3Yyjd24wJEa-_n0giZZRM2qkrppZ472W926sxVaLWGNFJulxw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test.earlybird.se/shipmentevents/UE954142681SE/SE/true",
+					"protocol": "https",
+					"host": [
+						"test",
+						"earlybird",
+						"se"
+					],
+					"path": [
+						"shipmentevents",
+						"UE954142681SE",
+						"SE",
+						"true"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "\"username\": \"testCase\"\"",
+			"value": "testCase"
+		}
+	]
+}
